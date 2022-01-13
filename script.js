@@ -1,7 +1,7 @@
 const container = document.getElementById("container");
 const buttons = document.getElementById("buttons");
 
-function makeRows(rows, cols) {
+function makeCanvas(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
   container.style.setProperty('--grid-cols', cols);
   for (c = 0; c < (rows * cols); c++) {
@@ -10,4 +10,4 @@ function makeRows(rows, cols) {
   };
 };
 
-makeRows(16, 16);
+makeCanvas(16, 16);

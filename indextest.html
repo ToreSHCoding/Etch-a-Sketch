@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>test</h1>
+  <div id="section">
+    <div id="container">
+
+    </div>
+    <div id="buttons">
+
+    </div>
+  </div>
+  <style>
+    h1 {
+      text-align: center;
+    }
+
+    #section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    #container {
+      display: grid;
+    }
+
+    .grid{
+      padding: 1em;
+      border: 1px solid black;
+    }
+  </style>
+  <script>
+    const container = document.getElementById("container");
+    const buttons = document.getElementById("buttons");
+
+    function makeCanvas(rows, cols){
+      for (i = 0; i < (rows*cols); i++){
+        let grid = document.createElement('div');
+        container.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+        container.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+        container.appendChild(grid).classList.add('grid');
+      }
+    }
+
+    makeCanvas(16, 16);
+  </script>
+</body>
+</html>

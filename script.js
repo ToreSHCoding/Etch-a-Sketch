@@ -2,6 +2,28 @@ const container = document.getElementById("container");
 const buttons = document.getElementById("buttons");
 const gridToggle = document.getElementById("grid-toggle");
 
+// gridToggle.onclick = () => setGridLines('tglOn')
+
+// function setGridLines() {
+//   if (gridLinesToggle === 'tglOn'){
+//     gridLinesToggle();
+    
+//   }
+// }
+
+gridToggle.addEventListener('click', () => {
+  gridLinesToggle();
+})
+
+function gridLinesToggle() {
+  let gridLines = document.querySelectorAll(".grid-item");
+  gridLines.forEach(gridLine => {
+    gridLine.style.outlineStyle = "none";
+  });
+}
+
+
+
 function makeCanvas(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
   container.style.setProperty('--grid-cols', cols);
@@ -24,6 +46,8 @@ function changeCellColor() {
     });
   });
 }
+
+
 
 
 

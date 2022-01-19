@@ -15,12 +15,26 @@ gridToggle.addEventListener('click', () => {
   gridLinesToggle();
 })
 
+let gridLines = document.getElementsByClassName('grid-item');
+
 function gridLinesToggle() {
-  let gridLines = document.querySelectorAll(".grid-item");
-  gridLines.forEach(gridLine => {
-    gridLine.style.outlineStyle = "none";
-  });
+  // let gridLines = document.querySelectorAll(".grid-item");
+  for (var i = 0; i < gridLines.length; i++) {
+    gridLines[i].classList.toggle('grid-tgl');
+    
+    if (gridLines[i].classList.contains('grid-tgl')){
+      gridToggle.textContent = "Grid: On";
+    } else if (gridLines[i].classList.contains('grid-tgl') == false){
+      gridToggle.textContent = "Grid: Off";
+    }
+  }
+  // gridLines.forEach(gridLine => {
+  //   gridLine.style.outlineStyle = "none";
+  // });
+  
 }
+
+
 
 
 

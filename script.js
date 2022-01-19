@@ -34,10 +34,6 @@ function gridLinesToggle() {
   
 }
 
-
-
-
-
 function makeCanvas(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
   container.style.setProperty('--grid-cols', cols);
@@ -46,10 +42,11 @@ function makeCanvas(rows, cols) {
     container.appendChild(cell).className = "grid-item";
   }
   
-  changeCellColor();
+  
 };
 
 makeCanvas(16, 16);
+changeCellColor();
 
 // changes color of each cell to black
 function changeCellColor() {
@@ -61,7 +58,10 @@ function changeCellColor() {
   });
 }
 
+function rainbowCellColor() {
+  let randomColor = Math.floor(Math.random() * 256);
 
+}
 
 
 

@@ -95,7 +95,7 @@ function eraserFunc() {
   let cellColors = document.querySelectorAll(".grid-item");
   cellColors.forEach(cellColor => {
     cellColor.addEventListener('mouseover', () => {
-      cellColor.style.backgroundColor = "white";
+      cellColor.style.backgroundColor = "";
     });
   });
 }

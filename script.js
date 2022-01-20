@@ -1,6 +1,11 @@
 const container = document.getElementById("container");
 const buttons = document.getElementById("buttons");
+
+const stndColor = document.getElementById("stnd-color");
+const colorful = document.getElementById("colorful");
+const eraser = document.getElementById("eraser");
 const gridToggle = document.getElementById("grid-toggle");
+const clearCanvas = document.getElementById("clear-canvas");
 
 // gridToggle.onclick = () => setGridLines('tglOn')
 
@@ -11,6 +16,11 @@ const gridToggle = document.getElementById("grid-toggle");
 //   }
 // }
 
+function clearFunc() {
+  let cell
+}
+
+// btn to activate gridLinesToggle()
 gridToggle.addEventListener('click', () => {
   gridLinesToggle();
 })
@@ -41,12 +51,15 @@ function makeCanvas(rows, cols) {
     let cell = document.createElement("div");
     container.appendChild(cell).className = "grid-item";
   }
-  
-  
 };
 
 makeCanvas(16, 16);
-changeCellColor();
+// changeCellColor();
+
+// btn to activate changeCellColor()
+stndColor.addEventListener('click', () => {
+  changeCellColor();
+})
 
 // changes color of each cell to black
 function changeCellColor() {
@@ -58,15 +71,36 @@ function changeCellColor() {
   });
 }
 
+// btn to activate rainbowCellColor()
+colorful.addEventListener('click', () => {
+  rainbowCellColor();
+})
+
+// changes each cell to random color
 function rainbowCellColor() {
-  let randomColor = Math.floor(Math.random() * 256);
+  let cellRandomColors = document.querySelectorAll(".grid-item");
+  cellRandomColors.forEach(cellRandomColor => {
+    cellRandomColor.addEventListener('mouseover', () => {
+      cellRandomColor.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    })
+  })
 
 }
 
+eraser.addEventListener('click', () => {
+  eraserFunc();
+});
 
+function eraserFunc() {
+  let cellColors = document.querySelectorAll(".grid-item");
+  cellColors.forEach(cellColor => {
+    cellColor.addEventListener('mouseover', () => {
+      cellColor.style.backgroundColor = "white";
+    });
+  });
+}
 
-
-
+changeCellColor();
 
 
 

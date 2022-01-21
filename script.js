@@ -2,10 +2,14 @@ const container = document.getElementById("container");
 const buttons = document.getElementById("buttons");
 
 const stndColor = document.getElementById("stnd-color");
+// const shading = document.getElementById("shading");
 const colorful = document.getElementById("colorful");
 const eraser = document.getElementById("eraser");
 const gridToggle = document.getElementById("grid-toggle");
 const clearCanvas = document.getElementById("clear-canvas");
+
+const colorPick = document.getElementById("color-pick");
+
 
 // gridToggle.onclick = () => setGridLines('tglOn')
 
@@ -16,8 +20,16 @@ const clearCanvas = document.getElementById("clear-canvas");
 //   }
 // }
 
+clearCanvas.addEventListener('click', () => {
+  clearFunc();
+})
+
 function clearFunc() {
-  let cell
+  let cells = document.querySelectorAll(".grid-item");
+  
+  for (var i = 0; i < cells.length; i++) {
+    cells[i].style.backgroundColor = "";
+  }
 }
 
 // btn to activate gridLinesToggle()
@@ -44,10 +56,10 @@ function gridLinesToggle() {
   
 }
 
-function makeCanvas(rows, cols) {
-  container.style.setProperty('--grid-rows', rows);
-  container.style.setProperty('--grid-cols', cols);
-  for (c = 0; c < (rows * cols); c++) {
+function makeCanvas(size, size) {
+  container.style.setProperty('--grid-rows', size);
+  container.style.setProperty('--grid-cols', size);
+  for (c = 0; c < (size * size); c++) {
     let cell = document.createElement("div");
     container.appendChild(cell).className = "grid-item";
   }
@@ -69,7 +81,31 @@ function changeCellColor() {
       cellColor.style.backgroundColor = "black";
     });
   });
+
 }
+
+colorPick.addEventListener('input', () => {
+  let colorChoice = colorPick.value;
+  cellColor.style.backgroundColor = colorChoice;
+})
+
+// shading.addEventListener('click', () => {
+//   shadingFunc();
+// })
+
+// function shadingFunc() {
+//   let cellShades = document.querySelectorAll(".grid-item");
+//   cellShades.forEach(cellShade => {
+//     cellShade.addEventListener('mouseover', () => {
+//       let currentShade = 0.1
+//       cellShade.style.backgroundColor = `rgba(128, 128, 128, ${currentShade})`;
+//       if (currentShade <= 0.9){
+//         cellShade.style.backgroundColor = `rgba(128, 128, 128, ${currentShade + 0.1})`
+//       }
+//     })
+//   })
+
+// }
 
 // btn to activate rainbowCellColor()
 colorful.addEventListener('click', () => {

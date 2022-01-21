@@ -13,12 +13,16 @@
   <div id="section">
     <div id="container"></div>
     <div id="buttons">
-      <button id="stnd-color" class="btns">Standard Color</button>
+      <input type="color" id="color-pick">
+      <button id="stnd-color" class="btns">Standard Black</button>
+      <!-- <button id="shading" class="btns">Shading</button> -->
       <button id="colorful" class="btns">Colorful</button>
       <button id="eraser" class="btns">Eraser</button>
       <button id="grid-toggle" class="btns">Grid: Off</button>
       <button id="clear-canvas" class="btns">Clear</button>
-      <button id="" class="btns"></button>
+      <div id="slider-container">
+        <input type="range" min="2" max="64" id="size-slider">
+      </div>
     </div>
   </div>
 </body>

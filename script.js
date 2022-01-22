@@ -7,8 +7,12 @@ const colorful = document.getElementById("colorful");
 const eraser = document.getElementById("eraser");
 const gridToggle = document.getElementById("grid-toggle");
 const clearCanvas = document.getElementById("clear-canvas");
+const sizeSlider = document.getElementById("size-slider");
+const sliderNum = document.getElementById("slider-number");
 
 const colorPick = document.getElementById("color-pick");
+
+const cell = document.getElementsByClassName(".grid-item");
 
 
 // gridToggle.onclick = () => setGridLines('tglOn')
@@ -56,16 +60,22 @@ function gridLinesToggle() {
   
 }
 
-function makeCanvas(size, size) {
+function makeCanvas(size) {
   container.style.setProperty('--grid-rows', size);
   container.style.setProperty('--grid-cols', size);
   for (c = 0; c < (size * size); c++) {
     let cell = document.createElement("div");
     container.appendChild(cell).className = "grid-item";
   }
+  changeCellColor();
 };
 
-makeCanvas(16, 16);
+// function deleteCanvas() {
+//   let cellsDelete = container.querySelectorAll('div');
+//   cellsDelete.forEach(cellDelete => cellDelete.remove());
+// }
+
+
 // changeCellColor();
 
 // btn to activate changeCellColor()
@@ -136,7 +146,17 @@ function eraserFunc() {
   });
 }
 
-changeCellColor();
+sizeSlider.addEventListener('mouseup', () => {
+  sizeSlider.oninput = function() {
+    sliderNum.innerHTML = `${sizeSlider.value} x ${sizeSlider.value}`;
+  }
+  let cellsDelete = container.querySelectorAll('div');
+  cellsDelete.forEach(cellDelete => cellDelete.remove());
+  makeCanvas(sizeSlider.value);
+}) 
+
+makeCanvas(16);
+// changeCellColor();
 
 
 

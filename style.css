@@ -1,5 +1,5 @@
 body {
-  background-color: burlywood;
+  background-color: rgb(228, 216, 196);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,14 +12,23 @@ body {
   justify-content: center;
   flex-direction: column;
   background-color: brown;
-  border: 1px solid black;
+  background-image: linear-gradient(90deg, rgb(124, 22, 22), rgb(146, 6, 6));
+  /* border: 2px solid rgb(124, 22, 22); */
   border-radius: 20px;
+  box-shadow: 15px 20px 5px 1px rgba(187, 26, 26, 0.2), inset -20px 0px 50px 0px rgb(73, 41, 29);
   width: 1000px;
   height: 1000px;
+  margin-top: 5rem;
 }
 
 h1 {
   text-align: center;
+  font-size: 40px;
+  font-family: 'Geostar', cursive;
+  color: rgb(255, 238, 0);
+  margin-top: 30px;
+  /* margin-bottom: -10px; */
+  text-shadow: 5px 0px rgba(255, 143, 5, 0.411);
 }
 
 :root {
@@ -33,6 +42,7 @@ h1 {
   grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-template-columns: repeat(var(--grid-cols), 1fr);
   background-color: white;
+  box-shadow: inset 0px 0px 20px #4e4b4b;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   width: 800px;
@@ -45,6 +55,94 @@ h1 {
   box-sizing: border-box;
 }
 
+/* for script.js */
 .grid-tgl {
   outline: 1px solid gray;
+}
+
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+#color-picker-container {
+  margin: 5px;
+  margin-bottom: 75px;
+  
+}
+
+#color-pick {
+  border-radius: 100px;
+  width: 50px;
+  height: 50px;
+  transition: .2s;
+}
+
+#color-pick:hover {
+  background-color: black;
+}
+
+input[type=color]::-webkit-color-swatch {
+  border-radius: 100px;
+}
+
+.btns {
+  padding: 10px;
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  margin: 5px;
+  margin-bottom: 75px;
+  border: 2px solid rgb(124, 22, 22);
+  border-radius: 10px;
+  /* background-color: rgb(255, 238, 0); */
+  cursor: pointer;
+  transition: .3s;
+}
+
+.btns:hover {
+  background-color: rgb(255, 238, 0);
+  color: blue;
+}
+
+.btns:active {
+  background-color: rgb(255, 123, 0);
+}
+
+#grid-toggle {
+  width: 7rem;
+}
+
+#slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 45px;
+}
+
+#size-slider {
+  width: 100%;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+  color: red;
+}
+
+#slider-number {
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 10px #4e4b4b;
+  padding: 10px;
+  text-align: center;
+  font-family: 'Press Start 2P', sans-serif;
+  color: rgb(0, 0, 0);
+  width: 7rem;
 }

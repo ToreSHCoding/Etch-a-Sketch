@@ -5,25 +5,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Geostar&family=Press+Start+2P&family=Sarpanch:wght@500&display=swap" rel="stylesheet">
   <script src="script.js" defer></script>
   <title>Echaskech</title>
 </head>
 <body>
-  <h1>Echaskech</h1>
   <div id="section">
+    <h1>Echaskech</h1>
     <div id="container"></div>
     <div id="buttons">
-      <input type="color" id="color-pick">
-      <button id="stnd-color" class="btns">Standard Black</button>
+      <div id="color-picker-container"><input type="color" id="color-pick" class="color-choice"></div>
+      <button id="stnd-color" class="btns color-choice">Standard Black</button>
       <!-- <button id="shading" class="btns">Shading</button> -->
-      <button id="colorful" class="btns">Colorful</button>
+      <button id="colorful" class="btns color-choice">Colorful</button>
       <button id="eraser" class="btns">Eraser</button>
       <button id="grid-toggle" class="btns">Grid: Off</button>
       <button id="clear-canvas" class="btns">Clear</button>
       <div id="slider-container">
         <input type="range" min="2" max="64" id="size-slider">
         <p id="slider-number">
-          16 x 16
+          32 x 32
         </p>
       </div>
     </div>

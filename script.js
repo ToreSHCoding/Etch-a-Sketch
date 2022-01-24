@@ -155,7 +155,7 @@ sizeSlider.addEventListener('mouseup', () => {
   makeCanvas(sizeSlider.value);
 }) 
 
-makeCanvas(16);
+makeCanvas(32);
 // changeCellColor();
 
 

@@ -68,6 +68,7 @@ function makeCanvas(size) {
     container.appendChild(cell).className = "grid-item";
   }
   changeCellColor();
+  colorChoose();
 };
 
 // function deleteCanvas() {
@@ -94,10 +95,18 @@ function changeCellColor() {
 
 }
 
-colorPick.addEventListener('input', () => {
-  let colorChoice = colorPick.value;
-  cellColor.style.backgroundColor = colorChoice;
-})
+function colorChoose() {
+  let cellColors = document.querySelectorAll('.grid-item');
+  
+  colorPick.addEventListener('input', () => {
+    let colorChoice = colorPick.value;
+    cellColors.forEach(cellColor => {
+      cellColor.addEventListener('mouseover', () => {
+        cellColor.style.backgroundColor = colorChoice;
+      });
+    });
+  });
+}
 
 // shading.addEventListener('click', () => {
 //   shadingFunc();
@@ -146,14 +155,16 @@ function eraserFunc() {
   });
 }
 
+
 sizeSlider.addEventListener('mouseup', () => {
-  sizeSlider.oninput = function() {
-    sliderNum.innerHTML = `${sizeSlider.value} x ${sizeSlider.value}`;
-  }
+  sizeSlider.onmousemove = function() {
+    sliderNum.innerText = `${sizeSlider.value} x ${sizeSlider.value}`;
+  };
   let cellsDelete = container.querySelectorAll('div');
   cellsDelete.forEach(cellDelete => cellDelete.remove());
   makeCanvas(sizeSlider.value);
-}) 
+  gridToggle.textContent = 'Grid: Off'
+});
 
 makeCanvas(32);
 // changeCellColor();

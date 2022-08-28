@@ -67,6 +67,7 @@ stndColor.addEventListener('click', () => {
 // changes color of each cell to black
 function changeCellColor() {
   const cellColors = document.querySelectorAll('.grid-item');
+  
   cellColors.forEach((cellColor) => {
     cellColor.addEventListener('mouseover', () => {
       cellColor.style.backgroundColor = 'black';
@@ -96,6 +97,7 @@ colorful.addEventListener('click', () => {
 // changes each cell to random color
 function rainbowCellColor() {
   const cellRandomColors = document.querySelectorAll('.grid-item');
+
   cellRandomColors.forEach((cellRandomColor) => {
     cellRandomColor.addEventListener('mouseover', () => {
       cellRandomColor.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
@@ -110,6 +112,7 @@ eraser.addEventListener('click', () => {
 
 function eraserFunc() {
   const cellColors = document.querySelectorAll('.grid-item');
+  
   cellColors.forEach((cellColor) => {
     cellColor.addEventListener('mouseover', () => {
       cellColor.style.backgroundColor = '';
